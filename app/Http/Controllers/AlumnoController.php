@@ -15,22 +15,25 @@ class AlumnoController extends Controller{
     }
 
 
-    public function store(){
-
+    public function store(Request $request){
+        Alumno::create($request->all());
+        return redirect()->route('grado.index')->with('success','Grado agregado satisfactoriamente');
     }
 
-    public function show(Request $request, Alumno $alumno){
-
-    }
-
-
-    public function update(Request $request, Alumno $alumno){
-
+    public function show(Alumno $grado){
+        return AlumnoResource::make($grado);
     }
 
 
-    public function delete(Request $request, Alumno $alumno){
+    public function update(Request $request, Alumno $grado){
+        $grado->update($request->all());
+        return redirect()->route('grado.index')->with('success','Grado actualizado satisfactoriamente');
+    }
 
+
+    public function delete(Alumno $grado){
+        $grado->delete();
+        return redirect()->route('grado.index')->with('success','Grado eliminado satisfactoriamente');
     }
 
 
