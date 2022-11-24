@@ -14,6 +14,8 @@ class MateriaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'mat_nombre' => $this->mat_nombre
+        ];
     }
 }

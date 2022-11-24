@@ -14,6 +14,8 @@ class GradoResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'grd_nombre' => $this->grd_nombre
+        ];
     }
 }
